@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>EmptyHTML</title>
+	</head>
+	<body>
+		<input type="number" value="24" placeholder="24" id="no-of-tabs-input" />
+		<input type="number" value="2" placeholder="2" id="wait-time-input" />
+		<button type="button" id="start-button">Start</button>
+		<div class="frame-container"></div>
+	</body>
+
+	<script>
+		const noOfTabsInput = document.querySelector("#no-of-tabs-input");
+		const waitTimeInput = document.querySelector("#wait-time-input");
+		const startButton = document.querySelector("#start-button");
+		const frameContainer = document.querySelector(".frame-container");
+
+		const links = [
+			"https://www.revenuecpmgate.com/k4a0p1ak?key=a788492225d52c6f83e0813a04b14d33",
+			"https://www.revenuecpmgate.com/vdchebnz75?key=e2a11d19a44acac685375a120382eae1",
+			"https://www.revenuecpmgate.com/r171m5r73?key=9c536700b74704015e26c8033ebe3c2d",
+			"https://www.revenuecpmgate.com/a5b55jjd?key=c1213b5c32803ae39d5bf0dfedc3991e",
+			"https://www.revenuecpmgate.com/hik776f15e?key=537d31c0172ac9d24e9bb03249be8e94",
+			"https://www.revenuecpmgate.com/itx8n48xw?key=6fb9c1381b70f3dbfeac17412aeb36a3",
+			"https://www.revenuecpmgate.com/e97499sc?key=70d58f6f47e463dfdf006f822c76482d",
+			"https://www.revenuecpmgate.com/ptdmig8pem?key=86092c2490c4ebc4b4b3965523fca26a",
+			"https://www.revenuecpmgate.com/ny5fbwr5qh?key=dac01bfc753937bdf8fda4ac7dd823af",
+			"https://www.revenuecpmgate.com/bu11b7z3?key=f2791403d82cb8d8c1563ed49b7c4daf",
+			"https://www.revenuecpmgate.com/bfymj985?key=a184fe55856593cd64aa250f253ecb40",
+			"https://www.revenuecpmgate.com/pj1avxmsr?key=6cfea374423ce4287882f7e99745fd43",
+			"https://www.revenuecpmgate.com/zda8may6ix?key=d00ba6bcc3cb4e94fcecc2d474c5c8c2",
+			"https://www.revenuecpmgate.com/syspt566?key=27db95e77b050db81c3776c17c934e42",
+			"https://www.revenuecpmgate.com/h5agfjfq4f?key=08c5723ff0865644ca3b55648282be32",
+			"https://www.revenuecpmgate.com/rb78wvqf?key=6eb987babcb12725099290b2c702e7f2",
+			"https://www.revenuecpmgate.com/nm7b3frnb?key=34b50b5d6957008b042eed3bf223f5e2",
+			"https://www.revenuecpmgate.com/sqvxcn9cf9?key=cebc29f109d5ca5f62dfbc3747263195",
+			"https://www.revenuecpmgate.com/cwi7qiqj5d?key=e05323b9d100a26d20a655861f09b852",
+			"https://www.revenuecpmgate.com/rui32r60?key=031a24a6892a90f19436b7c0f6a189aa",
+			"https://www.revenuecpmgate.com/sgt7gwaki?key=ef20f498ffd3aaffa14f6395374de0de",
+			"https://www.revenuecpmgate.com/fhmwbzcbg?key=11d758f9390732cfb60e787d09c1c118",
+			"https://www.revenuecpmgate.com/vzgi6850jr?key=a2950ac2e94fb81010ad05265c31d103",
+			"https://www.revenuecpmgate.com/q8ufzxih?key=6787075ac3a3d6f503569e4803764a80",
+			"https://www.revenuecpmgate.com/dy1ygtdi24?key=eccf5bb5917fd44b5bf259d2a522a664",
+			"https://www.revenuecpmgate.com/dak9f0wa?key=1e149b43dae97eac78a3a9d652b3d5f7",
+			"https://www.revenuecpmgate.com/zfk7au3y?key=e4627bda1c7d52e484b4bcef5d9a904b",
+			"https://www.revenuecpmgate.com/en67nuzrw?key=de0d5086098e93e0a21a47259b2cb20c",
+			"https://www.revenuecpmgate.com/s89r0mbe?key=41315b7efff4ba81955f2a6f77787096",
+			"https://www.revenuecpmgate.com/m3vtyh6h?key=51aa5d57fa3dc7e4c53037a6b5fbbdbe",
+			"https://www.revenuecpmgate.com/tszk0m9yr?key=366e5f705f84c3225d5fde3a77993c44",
+			"https://www.revenuecpmgate.com/xfeyv3jf1?key=4316df2f2dc1e05ff9fbfbeb453e8938",
+			"https://www.revenuecpmgate.com/kfpk62fvy8?key=2464c120eabb02cd488195a8b1504017",
+			"https://www.revenuecpmgate.com/ei7cic69mf?key=a2eb099a2ce606974dcb57f32647848f",
+			"https://www.revenuecpmgate.com/ie5fjgzmt1?key=7c316ec2120d06f8bb1173394722a550",
+			"https://www.revenuecpmgate.com/pk9dufztf?key=9892029a2a65c7d8ff3a98327a35636d",
+			"https://www.revenuecpmgate.com/ah0y0c26z?key=58003296420ef429f276f46aa3b3543a",
+			"https://www.revenuecpmgate.com/y2niugyy51?key=dc7b7c9951b10e574ddc635b6662b18b",
+			"https://www.revenuecpmgate.com/uh7t9becw?key=632658e9f37fbf95cbedd6bdc41901c8",
+			"https://www.revenuecpmgate.com/rncqx98ty?key=bac89d7815dd43c5bebf97f62e3d82c6",
+			"https://www.revenuecpmgate.com/pruc4w1w2?key=34aa756053ff6afbe1cd570b93a49bce",
+			"https://www.revenuecpmgate.com/w3spwuz2?key=cc2540074caaab28a250df8e7af3b853",
+			"https://www.revenuecpmgate.com/b5xpk04uds?key=e8c07519897733c6e1414c4c4c64f304",
+			"https://www.revenuecpmgate.com/dhjb37tef?key=64ed448452c374d3af6892e9550693eb",
+			"https://www.revenuecpmgate.com/akkwjz7k9h?key=5230c233d809cbd018b38bfb48db10a7",
+			"https://www.revenuecpmgate.com/nermqmncp?key=04d32c3e55987f76db5dee0bb554262d",
+			"https://www.revenuecpmgate.com/sjs5fni4?key=56309894051e843e9af3b609c3d9607a",
+			"https://www.revenuecpmgate.com/vqwdxqqa?key=d72c08d981f0476272d96cf40dfbf33a",
+		];
+
+		startButton.onclick = function () {
+			const noOfTabs = noOfTabsInput.value;
+			const waitTime = waitTimeInput.value * 1000;
+
+			frameContainer.innerHTML = "";
+			for (let i = 0; i < noOfTabs; i++) {
+				addNewFrame(waitTime);
+			}
+
+			setInterval(() => {
+				frameContainer.innerHTML = "";
+				for (let i = 0; i < noOfTabs; i++) {
+					addNewFrame(waitTime);
+				}
+			}, waitTime);
+		};
+
+		function addNewFrame(waitTime) {
+			const frame = document.createElement("iframe");
+			frame.src = links[Math.floor(Math.random() * links.length)];
+			frameContainer.appendChild(frame);
+		}
+	</script>
+</html>
+
